@@ -1,9 +1,18 @@
 let num1 = '';
 let num2 = '';
-let operator = null;
+let operator = '';
 const display = document.querySelector('#display');
 const numberButtons = document.querySelectorAll('.num-pad button');
 const operatorButtons = document.querySelectorAll('.operator-pad button');
+const equalButtons = document.querySelector('#equals');
+const clearButton = document.querySelector('#clear');
+
+clearButton.addEventListener('click', () => {
+    num1 = '';
+    num2 = '';
+    operator = '';
+    updateDisplay();
+});
 
 numberButtons.forEach(button => { button.addEventListener (
     'click', () => {
@@ -28,6 +37,17 @@ operatorButtons.forEach(button => { button.addEventListener (
      updateDisplay();
     }
 )})
+
+equalButtons.addEventListener('click', () => {
+    if (num1 === '' || num2 === '' || operator === '') return;
+
+    const result = operate(operator, Number(num1), Number(num2));
+    display.innerHTML = result;
+    num1 = result.String(result);
+    num2 = '';
+    operator = '';
+    updateDisplay();
+})
 
 function add (num1, num2) {
     return num1 + num2;
@@ -64,7 +84,7 @@ function operate (operator, num1, num2) {
 }
 
 function updateDisplay() {
-    if (operator = '' || operator === null) {
+    if (operator ==='' || operator === null) {
         display.innerHTML = num1;
     } else {
     display.innerHTML = `${num1} ${operator} ${num2}`;

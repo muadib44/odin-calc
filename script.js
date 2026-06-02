@@ -35,3 +35,7 @@ function operate (operator, num1, num2) {
             return 'Error: Invalid operator';
     }
 }
+
+function updateDisplay() {
+    return `${num1} ${operator} ${num2}`;
+}

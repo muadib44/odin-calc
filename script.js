@@ -7,6 +7,7 @@ const operatorButtons = document.querySelectorAll('.operator-pad button');
 const equalButtons = document.querySelector('#equals');
 const clearButton = document.querySelector('#clear');
 const deleteButton = document.querySelector('#delete');
+const decimalButton = document.querySelector('#decimal');
 
 clearButton.addEventListener('click', () => {
     num1 = '';
@@ -31,6 +32,16 @@ numberButtons.forEach(button => { button.addEventListener (
         const digit = button.textContent;
 
         if (digit === 'C' || digit === '=') return;
+
+        if (digit === ".") {
+            if (operator === '' && num1.includes('.')) { 
+                return;
+            }
+            if (operator !== '' && num2.includes('.')) {
+                return;
+            }
+        }
+
             
         if (operator === '') {
             num1 += digit;

@@ -33,6 +33,13 @@ operatorButtons.forEach(button => { button.addEventListener (
     'click', () => {
      if (num1 === '') return;
 
+     if (operator !== '' && num2 !== '') {
+        const result = operate(operator, Number(num1), Number(num2));
+        display.innerHTML = result;
+        num1 = String(result);
+        num2 = '';
+     }
+
      operator = button.textContent;
      updateDisplay();
     }
@@ -43,7 +50,7 @@ equalButtons.addEventListener('click', () => {
 
     const result = operate(operator, Number(num1), Number(num2));
     display.innerHTML = result;
-    num1 = result.String(result);
+    num1 = String(result);
     num2 = '';
     operator = '';
     updateDisplay();

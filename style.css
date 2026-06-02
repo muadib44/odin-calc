@@ -1,14 +1,20 @@
+body {
+    background-color: #404774;
+    margin: 0;
+    padding: 0;
+}
+
 h1 {
     text-align: center;
     margin-top: 20px;
     margin-bottom: 10px;
     font-family: 'Arial', sans-serif;
-    color: #333;
+    color: #e1dbdb;
 }
 
 .calculator {
     width: 360px;
-    background-color: whitesmoke;
+    background-color: #404774;
     border-radius: 10px;
     margin: 50px auto;
     margin-top: 20px;
@@ -20,7 +26,7 @@ h1 {
     height: 60px;
     background-color: #222;
     color: white;
-    font-size: 32px;
+    font-size: 28px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -28,6 +34,7 @@ h1 {
     box-sizing: border-box;
     border-radius: 5px;
     margin-bottom: 20px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
 }
 
 .button-container {
@@ -35,6 +42,10 @@ h1 {
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
+    border-radius: 10px;
+    border: 1px solid #2b3156;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
 }
 
 .button-container button {

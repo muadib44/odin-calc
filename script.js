@@ -46,11 +46,13 @@ operatorButtons.forEach(button => { button.addEventListener (
 )})
 
 equalButtons.addEventListener('click', () => {
-    if (num1 === '' || num2 === '' || operator === '') return;
+    if (num1 === '' || num2 === '' || operator === '') {
+         return display.innerHTML = 'Error: Incomplete expression';
+    }
 
-    const result = operate(operator, Number(num1), Number(num2));
+    const result = operate(operator, parseFloat(num1), parseFloat(num2));
     display.innerHTML = result;
-    num1 = String(result);
+    num1 = String(parseFloat(result.toFixed(2)));
     num2 = '';
     operator = '';
     updateDisplay();

@@ -13,6 +13,9 @@ h1 {
 }
 
 .calculator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 360px;
     background-color: #404774;
     border-radius: 10px;
@@ -52,7 +55,13 @@ h1 {
     height: 60px;
     box-sizing: border-box;
     cursor: pointer;
-    width: 25%;
+}
+
+.calculation-block {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    gap:0;
 }
 
 .num-pad {
@@ -62,7 +71,7 @@ h1 {
 }
 
 .num-pad button {
-    width: 33.33%;
+    width: calc(100% / 3);
     height: 60px;
     box-sizing: border-box;
     cursor: pointer;
@@ -83,10 +92,28 @@ h1 {
     font-size: 20px;
 }
 
+.function-row {
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 #clear {
-   width: 100%;
+    width: 50%;
     height: 60px;
     box-sizing: border-box;
     cursor: pointer;
     font-size: 20px;
+    margin: 0;
+}
+
+#delete {
+    width: 50%;
+    height: 60px;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 20px;
+    margin: 0;
 }

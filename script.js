@@ -6,11 +6,23 @@ const numberButtons = document.querySelectorAll('.num-pad button');
 const operatorButtons = document.querySelectorAll('.operator-pad button');
 const equalButtons = document.querySelector('#equals');
 const clearButton = document.querySelector('#clear');
+const deleteButton = document.querySelector('#delete');
 
 clearButton.addEventListener('click', () => {
     num1 = '';
     num2 = '';
     operator = '';
+    updateDisplay();
+});
+
+deleteButton.addEventListener('click', () => {
+    if (operator === '') {
+        num1 = num1.slice(0, -1);
+    } else if (num2 === '') {
+        operator = '';
+    } else {
+        num2 = num2.slice(0, -1);
+    }
     updateDisplay();
 });
 

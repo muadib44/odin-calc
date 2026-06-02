@@ -1,6 +1,33 @@
 let num1 = '';
 let num2 = '';
-let operator = '';
+let operator = null;
+const display = document.querySelector('#display');
+const numberButtons = document.querySelectorAll('.num-pad button');
+const operatorButtons = document.querySelectorAll('.operator-pad button');
+
+numberButtons.forEach(button => { button.addEventListener (
+    'click', () => {
+        const digit = button.textContent;
+
+        if (digit === 'C' || digit === '=') return;
+            
+        if (operator === '') {
+            num1 += digit;
+        } else {
+            num2 += digit;
+        }
+        updateDisplay()
+    }
+)})
+
+operatorButtons.forEach(button => { button.addEventListener (
+    'click', () => {
+     if (num1 === '') return;
+
+     operator = button.textContent;
+     updateDisplay();
+    }
+)})
 
 function add (num1, num2) {
     return num1 + num2;
@@ -37,5 +64,9 @@ function operate (operator, num1, num2) {
 }
 
 function updateDisplay() {
-    return `${num1} ${operator} ${num2}`;
+    if (operator = '' || operator === null) {
+        display.innerHTML = num1;
+    } else {
+    display.innerHTML = `${num1} ${operator} ${num2}`;
+    }
 }

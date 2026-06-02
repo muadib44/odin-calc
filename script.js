@@ -41,8 +41,7 @@ numberButtons.forEach(button => { button.addEventListener (
                 return;
             }
         }
-
-            
+   
         if (operator === '') {
             num1 += digit;
         } else {
@@ -80,6 +79,24 @@ equalButtons.addEventListener('click', () => {
     operator = '';
     updateDisplay();
 })
+
+window.addEventListener('keydown', (event) => {
+    const key = event.key;
+
+    if (key >= '0' && key <= '9') {
+        document.querySelector(`.num-pad button[data-key="${key}"]`).click();
+    } else if (['+', '-', '*', '/'].includes(key)) {
+        document.querySelector(`.operator-pad button[data-key="${key}"]`).click();
+    } else if (key === 'Enter') {
+        equalButtons.click();
+    } else if (key === 'Backspace') {
+        deleteButton.click();
+    } else if (key === 'Escape') {
+        clearButton.click();
+    } else if (key === '.') {
+        decimalButton.click();
+    }
+});
 
 function add (num1, num2) {
     return num1 + num2;
